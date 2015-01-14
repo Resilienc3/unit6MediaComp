@@ -16,14 +16,49 @@ public class PictureTester
     beach.zeroBlue();
     beach.explore();
   }
+   
+  /** Method to test zeroBlue */
+  public static void testZeroRed()
+  {
+    Picture helix = new Picture("helix.jpg");
+    helix.explore();
+    helix.zeroRed();
+    helix.explore();
+  }
   
+    /** Method to test zeroBlue */
+  public static void testZeroGreen()
+  {
+    Picture helix= new Picture("helix.jpg");
+    helix.explore();
+    helix.zeroGreen();
+    helix.explore();
+  }
     /** Method to test keepOnlyBlue */
   public static void testKeepOnlyBlue()
   {
-    Picture logo= new Picture("resilienc3.jpg");
-    logo.explore();
-    logo.keepOnlyBlue();
-    logo.explore();
+    Picture helix= new Picture("helix.jpg");
+    helix.explore();
+    helix.keepOnlyBlue();
+    helix.explore();
+  }
+  
+      /** Method to test keepOnlyBlue */
+  public static void testKeepOnlyRed()
+  {
+    Picture helix= new Picture("helix.jpg");
+    helix.explore();
+    helix.keepOnlyRed();
+    helix.explore();
+  }
+  
+      /** Method to test keepOnlyBlue */
+  public static void testKeepOnlyGreen()
+  {
+    Picture helix= new Picture("helix.jpg");
+    helix.explore();
+    helix.keepOnlyGreen();
+    helix.explore();
   }
   
       /** Method to test grayscale */
@@ -38,10 +73,10 @@ public class PictureTester
        /** Method to test grayscale */
   public static void testGrayscale()
   {
-    Picture logo= new Picture("resilienc3.jpg");
-    logo.explore();
-    logo.grayscale();
-    logo.explore();
+    Picture helix= new Picture("helix.jpg");
+    helix.explore();
+    helix.grayscale();
+    helix.explore();
   }
   
   /** Method to test mirrorVertical */
@@ -56,7 +91,7 @@ public class PictureTester
    /** Method to test mirrorVerticalRightToLeft */
   public static void testMirrorVerticalRightToLeft()
   {
-    Picture caterpillar = new Picture("caterpillar.jpg");
+    Picture caterpillar= new Picture("caterpillar.jpg");
     caterpillar.explore();
     caterpillar.mirrorVerticalRightToLeft();
     caterpillar.explore();
@@ -107,6 +142,15 @@ public class PictureTester
    seagull.explore();
   }
   
+  /** Method to test mirrorArms*/
+  public static void testFixUnderwater()
+  {
+   Picture water = new Picture("water.jpg");
+   water.explore();
+   water.fixUnderwater();
+   water.explore();
+  }
+  
   /** Method to test the collage method */
   public static void testCollage()
   {
@@ -135,8 +179,8 @@ public class PictureTester
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
     //testNegate();
-    testGrayscale();
-    //testFixUnderwater();
+    //testGrayscale();
+    testFixUnderwater();
     //testMirrorVertical();
     //testMirrorVerticalRightToLeft();
     //testMirrorHorizontal();
