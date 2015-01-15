@@ -404,6 +404,37 @@ public class Picture extends SimplePicture
       }
     }   
   }
+  
+  /** copy from the passed fromPic to the
+    * specified startRow and startCol in the
+    * current picture
+    * @param fromPic the picture to copy from
+    * @param startRow the start row to copy to
+    * @param startCol the start col to copy to
+    */
+  public void cropAndCopy(Picture sourcePicture, int startSourceRow, int endSourceRow, int startSourceCol,
+                        int endSourceCol,int startDestRow, int startDestCol)
+  {
+    Pixel fromPixel = null;
+    Pixel toPixel = null;
+    Pixel[][] toPixels = this.getPixels2D();
+    Pixel[][] fromPixels = sourcePicture.getPixels2D();
+    for (int fromRow = startSourceRow, toRow = startDestRow; 
+         fromRow <  endSourceRow &&
+         toRow < toPixels.length; 
+         fromRow++, toRow++)
+    {
+      for (int fromCol = startSourceCol, toCol = startDestCol; 
+           fromCol <endSourceCol&&
+           toCol < toPixels[0].length;  
+           fromCol++, toCol++)
+      {
+        fromPixel = fromPixels[fromRow][fromCol];
+        toPixel = toPixels[toRow][toCol];
+        toPixel.setColor(fromPixel.getColor());
+      }
+    }   
+  }
 
   /** Method to create a collage of several pictures */
   public void createCollage()
@@ -455,10 +486,11 @@ public class Picture extends SimplePicture
    */
   public static void main(String[] args) 
   {
-    Picture beach = new Picture("resilienc3.jpg");
-    beach.explore();
-    beach.zeroBlue();
-    beach.explore();
+    Picture logo = new Picture("resilienc3.jpg");
+    Picture helix = new Picture("helix.jpg");
+    logo.explore();
+    logo.cropAndCopy(helix, 20, 120,10,130, 50, 50);
+    logo.explore();
   }
   
 } // this } is the end of class Picture, put all new methods before this
