@@ -151,10 +151,19 @@ public class PictureTester
    water.explore();
   }
   
+  /** Method to test scaleByHalf */
+  public static void testScaleByHalf()
+  {
+    Picture helix = new Picture("helix.jpg");
+    helix.explore();
+    Picture scaledHelix = helix.scaleByHalf();
+    scaledHelix.explore();
+  }
+  
   /** Method to test the collage method */
   public static void testCollage()
   {
-    Picture canvas = new Picture("640x480.jpg");
+    Picture canvas = new Picture("helix.jpg");
     canvas.createCollage();
     canvas.explore();
   }
