@@ -461,6 +461,32 @@ public class Picture extends SimplePicture
     return scaled;
   }
   
+   Picture scaleByPercent(double percent)
+  {
+    Pixel fromPixel = null;
+    Pixel toPixel = null;
+    Picture scaled = new Picture((int)(this.getHeight()*(percent)), (int)(this.getWidth()*(percent)));
+    Pixel[][] toPixels = scaled.getPixels2D();
+    Pixel[][] fromPixels = this.getPixels2D();
+    for (int fromRow = 0, toRow = 0; 
+         fromRow < fromPixels.length &&
+         toRow < toPixels.length; 
+         fromRow+= (int)(1/percent), toRow++)
+    {
+      for (int fromCol = 0, toCol = 0; 
+           fromCol < fromPixels[0].length &&
+           toCol < toPixels[0].length;  
+           fromCol+=(int)(1/percent), toCol++)
+      {
+        fromPixel = fromPixels[fromRow][fromCol];
+        toPixel = toPixels[toRow][toCol];
+        toPixel.setColor(fromPixel.getColor());
+      }
+    }   
+    return scaled;
+  }
+  
+  
   /** Method to create a collage of several pictures */
   
     
@@ -469,7 +495,8 @@ public class Picture extends SimplePicture
     Picture canvas = new Picture("640x480.jpg"); 
     Picture rHelix = new Picture("helix.jpg");
     Picture gHelix = new Picture("helix.jpg");
-    Picture resilienc3 = new Picture("resilienc3.jpg");
+    Picture resi = new Picture("resilienc3.jpg");
+    Picture resiGray = new Picture("resilienc3.jpg");
     rHelix.keepOnlyRed();
     rHelix.fixUnderwater();
     rHelix.fixUnderwater();
@@ -477,20 +504,14 @@ public class Picture extends SimplePicture
     gHelix.zeroBlue();
     gHelix.mirrorVertical();
     Picture greenHelix = gHelix;
+    resi.grayscale();
+    resiGray = resi;
     this.copy(redHelix.scaleByHalf().scaleByHalf(),0,0); 
     this.copy(greenHelix.scaleByHalf().scaleByHalf(),0,740);
-    /*
-    this.copy(flower1,0,0);
-    this.copy(flower2,100,0);
-    this.copy(flower1,200,0);
-    Picture flowerNoBlue = new Picture(flower2.scaleByHalf());
-    flowerNoBlue.zeroBlue();
-    this.copy(flowerNoBlue,300,0);
-    this.copy(flower1,400,0);
-    this.copy(flower2,500,0);
-    this.mirrorVertical();
-    **/
-    this.write("collage.jpg");
+    this.copy(resiGray,647,0);
+    resiGray.mirrorHorizontal();
+    this.copy(resiGray,647,740);
+    this.write("H:\\GitHub\\unit6MediaComp\\PictureLab\\images\\collage.jpg");
   }
   
   
