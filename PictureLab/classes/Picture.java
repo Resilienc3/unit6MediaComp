@@ -493,7 +493,7 @@ public class Picture extends SimplePicture
   public void createCollage()
   {
     Picture canvas = new Picture("640x480.jpg"); 
-    Picture rHelix = new Picture("helix.jpg");
+    /*Picture rHelix = new Picture("helix.jpg");
     Picture gHelix = new Picture("helix.jpg");
     Picture resi = new Picture("resilienc3.jpg");
     Picture resiGray = new Picture("resilienc3.jpg");
@@ -510,8 +510,8 @@ public class Picture extends SimplePicture
     this.copy(greenHelix.scaleByHalf().scaleByHalf(),0,740);
     this.copy(resiGray,647,0);
     resiGray.mirrorHorizontal();
-    this.copy(resiGray,647,740);
-    this.write("H:\\GitHub\\unit6MediaComp\\PictureLab\\images\\collage.jpg");
+    this.copy(resiGray,647,740);**/
+    this.write("H:\\GitHub\\unit6MediaComp\\PictureLab\\images\\myCollage.jpg");
   }
   
   

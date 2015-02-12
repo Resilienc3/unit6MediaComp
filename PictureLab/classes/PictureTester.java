@@ -73,7 +73,7 @@ public class PictureTester
        /** Method to test grayscale */
   public static void testGrayscale()
   {
-    Picture helix= new Picture("helix.jpg");
+    Picture helix= new Picture("resilienc3.jpg");
     helix.explore();
     helix.grayscale();
     helix.explore();
@@ -100,7 +100,7 @@ public class PictureTester
    /** Method to test mirrorHorizontal*/
   public static void testMirrorHorizontal()
   {
-    Picture caterpillar = new Picture("caterpillar.jpg");
+    Picture caterpillar = new Picture("resilienc3.jpg");
     caterpillar.explore();
     caterpillar.mirrorHorizontal();
     caterpillar.explore();
